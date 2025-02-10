@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maga 💕</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            transition: background-image 1s ease-in-out;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #d6336c;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+        .no {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Queres ser mi San Valentín? ❤️</h1>
+        <div class="buttons">
+            <button class="btn yes" onclick="accept()">Sí 💖</button>
+            <button class="btn no" id="noBtn" onmouseover="moveButton()">No 💔</button>
+        </div>
+    </div>
+
+    <script>
+        function accept() {
+            alert("T amo tontuna 💕🥰");
+        }
+
+        function moveButton() {
+            const noBtn = document.getElementById("noBtn");
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        let index = 0;
+        const images = [
+            "img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", 
+            "img/5.jpg", "img/6.jpg", "img/7.jpg", "img/8.jpg"
+        ];
+
+        function changeBackground() {
+            document.body.style.backgroundImage = `url('${images[index]}')`;
+            index = (index + 1) % images.length;
+        }
+
+        setInterval(changeBackground, 3000);
+        changeBackground();
+    </script>
+</body>
+</html>
